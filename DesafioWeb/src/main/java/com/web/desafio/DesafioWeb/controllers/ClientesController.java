@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.web.desafio.DesafioWeb.models.Cliente;
 import com.web.desafio.DesafioWeb.repositorio.ClientesRepo;
@@ -19,5 +21,27 @@ public class ClientesController {
 		List<Cliente> clientes = (List<Cliente>)repo.findAll();
 		model.addAttribute("clientes", clientes);
 		return "clientes/index";
+	}
+	@GetMapping("/clientes/novo")
+	public String novo() {
+		return "clientes/novo";
+	}
+	
+	@PostMapping("/clientes/criar")
+	public String criar(Cliente cliente) {
+		//Deixando apenas números em CPF, RG e CEP
+		cliente.cpfNumeros();
+		cliente.rgNumeros();
+		cliente.cepNumeros();
+		
+		//Salvando cliente no banco
+		repo.save(cliente);
+		return "redirect:/clientes";
+	}
+	
+	@GetMapping("/clientes/{id}/excluir")
+	public String excluir(@PathVariable int id) {
+		repo.deleteById(id);
+		return "redirect:/clientes";
 	}
 }

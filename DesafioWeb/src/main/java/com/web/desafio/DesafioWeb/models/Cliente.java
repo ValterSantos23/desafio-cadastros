@@ -41,12 +41,12 @@ public class Cliente {
 	private String bairro;
 	
 	@Column(name = "cep", nullable = true, length = 8)
-	private int cep;
+	private String cep;
 	
 	@Column(name = "cidade", nullable = false, length = 20)
 	private String cidade;
 	
-	@Column(name = "uf", nullable = false, length = 20)
+	@Column(name = "uf", nullable = false, length = 2)
 	private String uf;
 	
 	@Column(name = "telefone", nullable = true, length = 13)
@@ -120,11 +120,11 @@ public class Cliente {
 		this.bairro = bairro;
 	}
 
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -166,6 +166,20 @@ public class Cliente {
 
 	public void setObs(String obs) {
 		this.obs = obs;
+	}
+	
+	//Métodos que removem tudo que não for números do CPF, RG e CEP
+	public void cpfNumeros() {
+		setCpf(getCpf().replaceAll("[^\\d]", ""));
+
+	}
+	public void rgNumeros() {
+		setRg(getRg().replaceAll("[^\\d]", ""));
+		
+	}
+	public void cepNumeros() {
+		setCep(getCep().replaceAll("[^\\d]", ""));
+		
 	}
 	
 }

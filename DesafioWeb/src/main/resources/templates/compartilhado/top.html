@@ -12,13 +12,13 @@
     <title>Ágape Sistemas</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -32,8 +32,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon">
-					<img src="img/logo_white.jpg">
+                <div class="sidebar-brand-icon" style="margin-right: 40px;">
+					<img src="/img/logo_white.jpg">
                 </div>
             </a>
 
@@ -116,15 +116,15 @@
 
                       	<div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                        <!-- Nav Item - Informações do usuário -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-light-600 small">Ronaldinho</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/ronaldinho.jpg">
+                                    src="/img/ronaldinho.jpg">
                             </a>
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - Botão Sair -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -133,7 +133,26 @@
                                 </a>
                             </div>
                         </li>
-
+						
+						<!-- Modelo Sair-->
+					    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					        aria-hidden="true">
+					        <div class="modal-dialog" role="document">
+					            <div class="modal-content">
+					                <div class="modal-header">
+					                    <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+					                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					                        <span aria-hidden="true">×</span>
+					                    </button>
+					                </div>
+					                <div class="modal-body">Selecione "Sair" se deseja realmente encerrar a sessão.</div>
+					                <div class="modal-footer">
+					                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					                    <a class="btn btn-primary" href="/sair">Sair</a>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
                     </ul>
 
                 </nav>
