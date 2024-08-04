@@ -27,7 +27,6 @@ public class Cliente {
 	@Column(name = "rg", nullable = false, length = 17)
 	private String rg;
 	
-	// Procurar realmente o melhor tipo de data para utilizar
 	@Column(name = "data_nasc", nullable = true)
 	private Date data_nasc;
 	
@@ -50,7 +49,7 @@ public class Cliente {
 	private String uf;
 	
 	@Column(name = "telefone", nullable = true, length = 13)
-	private String teleforne;
+	private String telefone;
 	
 	@Column(name = "celular", nullable = false, length = 15)
 	private String celular;
@@ -144,12 +143,12 @@ public class Cliente {
 		this.uf = uf;
 	}
 
-	public String getTeleforne() {
-		return teleforne;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setTeleforne(String teleforne) {
-		this.teleforne = teleforne;
+	public void setTeleforne(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public String getCelular() {

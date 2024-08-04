@@ -1,6 +1,7 @@
 package com.web.desafio.DesafioWeb.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,19 @@ public class ClientesController {
 		//Salvando cliente no banco
 		repo.save(cliente);
 		return "redirect:/clientes";
+	}
+	
+	@GetMapping("/clientes/{id}")
+	public String buscar(@PathVariable int id, Model model) {
+		Optional <Cliente> cliente = repo.findById(id);
+		//Tratamento para caso seja digitado na URL um ID inexistente
+		try {
+			model.addAttribute("cliente", cliente.get());
+		} catch (Exception e){
+			return "redirect:/clientes";
+		}
+		
+		return "/clientes/alterar";
 	}
 	
 	@GetMapping("/clientes/{id}/excluir")
