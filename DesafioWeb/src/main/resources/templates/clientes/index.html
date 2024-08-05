@@ -10,21 +10,24 @@
 	
 	    <div class="card shadow mb-4">
 	        <div class="card-header py-3">
-	            
-				<div class="input-group">
-					<!--Botão de novo-->
-					<a href="/clientes/novo" class="btn btn-success border border-dark">Novo</a>
-                    
-					<!--Pesquisas sem implementar ainda-->
-                    <div class="input-group-append" style="margin-left:425px;">
-						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Código" aria-label="Search" aria-describedby="basic-addon2">
-						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Cliente" aria-label="Search" aria-describedby="basic-addon2">
-						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="CPF" aria-label="Search" aria-describedby="basic-addon2">
-						<button class="btn btn-primary" type="button">
-                            <i class="fas fa-search fa-sm"></i>
-                        </button>
-                    </div>
-                </div>
+				<form method="get" action="/clientes/consultar">
+					<div class="input-group">
+						<!--Botão de novo-->
+						<a href="/clientes/novo" class="btn btn-success border border-dark">Novo</a>
+	                    
+						<!--Pesquisas sem implementar ainda-->
+	                    <div class="input-group-append" style="margin-left:425px;">
+							
+							<input type="number_format" id="cod_cliente" name="cod_cliente" pattern="[0-9]+" maxlength="8" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Código" aria-label="Search" aria-describedby="basic-addon2">
+							<input type="text" id="nome" name="nome" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Cliente" aria-label="Search" aria-describedby="basic-addon2">
+							<input type="number_format" id="cpf" name="cpf" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="CPF" aria-label="Search" aria-describedby="basic-addon2">
+							
+							<button class="btn btn-primary" type="submit">
+	                            <i class="fas fa-search fa-sm"></i>
+	                        </button>
+	                    </div>
+	                </div>
+				</form>
 	        </div>
 	        <div class="card-body">
 	            <div class="table-responsive">

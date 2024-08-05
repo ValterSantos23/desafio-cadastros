@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.desafio.DesafioWeb.models.Cliente;
 import com.web.desafio.DesafioWeb.repositorio.ClientesRepo;
@@ -18,13 +19,29 @@ public class ClientesController {
 	@Autowired
 	private ClientesRepo repo;
 	
-	//Tela de clientes, exibindo todos eles
+	//Tela de clientes vazia
 	@GetMapping("/clientes")
-	public String index(Model model) {
-		List<Cliente> clientes = (List<Cliente>)repo.findAll();
-		model.addAttribute("clientes", clientes);
+	public String index() {
 		return "clientes/index";
 	}
+	
+	//Tentativa de fazer consultas por filtros, SQL do ClientesRepo.java precisa de correções.
+	@GetMapping("/clientes/consultar")
+    public String consultar(@RequestParam(required = false) String cod_cliente,
+                            @RequestParam(required = false) String nome,
+	                        @RequestParam(required = false) String cpf,
+	                        Model model) {
+		
+		List<Cliente> clientes = repo.consultaClientes(cod_cliente, nome, cpf);
+		
+		try {
+	        model.addAttribute("clientes", clientes);
+	        return "clientes/index";
+		} catch (Exception e) {
+			return "redirect:/clientes";
+		}
+		
+    }
 	
 	//Tela de criação de novo cliente
 	@GetMapping("/clientes/novo")
