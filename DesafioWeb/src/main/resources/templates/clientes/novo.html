@@ -1,8 +1,9 @@
+<!--Topo compartilhado da página-->
 <div th:replace="compartilhado/top"></div>
-	<!-- Begin Page Content -->
+
 	<div class="container-fluid">
 	
-	    <!-- Page Heading -->
+	    <!-- Cabeçalho da página -->
 	    <h1 class="h3 mb-2 text-gray-800">Novo Cliente</h1>
 	    <p class="mb-4">
 			Dados do Cliente
@@ -15,6 +16,7 @@
 					<div class="form-row">
 				    	<div class="form-group col-md-2">
 				      		<label for="cod_cliente">Código:</label>
+							<!--Procurar como mostrar código antes de estar cadastrado-->
 				      		<input type="text" class="form-control" id="cod_cliente" value="Código" readonly>
 				    	</div>
 				    	<div class="form-group col-md-5">
@@ -91,5 +93,5 @@
 			</div>
 	    </div>
 	</div>
-	<!-- /.container-fluid -->
+	<!--Parte de baixo compartilhada da página-->
 <div th:replace="compartilhado/baixo"></div>

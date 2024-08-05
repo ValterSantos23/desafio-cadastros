@@ -17,17 +17,22 @@ import com.web.desafio.DesafioWeb.repositorio.ClientesRepo;
 public class ClientesController {
 	@Autowired
 	private ClientesRepo repo;
+	
+	//Tela de clientes, exibindo todos eles
 	@GetMapping("/clientes")
 	public String index(Model model) {
 		List<Cliente> clientes = (List<Cliente>)repo.findAll();
 		model.addAttribute("clientes", clientes);
 		return "clientes/index";
 	}
+	
+	//Tela de criação de novo cliente
 	@GetMapping("/clientes/novo")
 	public String novo() {
 		return "clientes/novo";
 	}
 	
+	//Criação do cliente
 	@PostMapping("/clientes/criar")
 	public String criar(Cliente cliente) {
 		//Deixando apenas números em CPF, RG e CEP
@@ -40,11 +45,12 @@ public class ClientesController {
 		return "redirect:/clientes";
 	}
 	
+	//Direcionamento para tela de alteração de clientes.
 	@GetMapping("/clientes/{id}")
 	public String busca(@PathVariable int id, Model model) {
 		Optional <Cliente> cliente = repo.findById(id);
 		
-		//Tratamento para caso seja digitado na URL um ID inexistente
+		//Tratamento para caso seja digitado na URL um ID inexistente.
 		try {
 			model.addAttribute("cliente", cliente.get());
 		} catch (Exception e){
@@ -54,17 +60,20 @@ public class ClientesController {
 		return "/clientes/alterar";
 	}
 	
+	//Salvando dados alterados de um cliente.
 	@PostMapping("/clientes/{id}/atualizar")
 	public String atualizar(@PathVariable int id, Cliente cliente) {
 		if(!repo.existsById(id)) {
 			return "redirect:/clientes"; 
 		}
+		//Setando id para alterar o cliente correto e não criar outro novo.
 		cliente.setCod_cliente(id);
 		repo.save(cliente);
 		
 		return "redirect:/clientes";
 	}
 	
+	//Exclusão de clientes.
 	@GetMapping("/clientes/{id}/excluir")
 	public String excluir(@PathVariable int id) {
 		repo.deleteById(id);
