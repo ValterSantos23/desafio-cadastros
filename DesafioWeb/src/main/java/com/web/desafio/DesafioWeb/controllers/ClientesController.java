@@ -41,8 +41,9 @@ public class ClientesController {
 	}
 	
 	@GetMapping("/clientes/{id}")
-	public String buscar(@PathVariable int id, Model model) {
+	public String busca(@PathVariable int id, Model model) {
 		Optional <Cliente> cliente = repo.findById(id);
+		
 		//Tratamento para caso seja digitado na URL um ID inexistente
 		try {
 			model.addAttribute("cliente", cliente.get());
@@ -51,6 +52,17 @@ public class ClientesController {
 		}
 		
 		return "/clientes/alterar";
+	}
+	
+	@PostMapping("/clientes/{id}/atualizar")
+	public String atualizar(@PathVariable int id, Cliente cliente) {
+		if(!repo.existsById(id)) {
+			return "redirect:/clientes"; 
+		}
+		cliente.setCod_cliente(id);
+		repo.save(cliente);
+		
+		return "redirect:/clientes";
 	}
 	
 	@GetMapping("/clientes/{id}/excluir")

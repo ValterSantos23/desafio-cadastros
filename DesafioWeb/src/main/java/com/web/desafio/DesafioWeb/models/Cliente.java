@@ -1,7 +1,5 @@
 package com.web.desafio.DesafioWeb.models;
 
-import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +26,7 @@ public class Cliente {
 	private String rg;
 	
 	@Column(name = "data_nasc", nullable = true)
-	private Date data_nasc;
+	private String data_nasc;
 	
 	@Column(name = "endereco", nullable = false, length = 40)
 	private String endereco;
@@ -63,6 +61,10 @@ public class Cliente {
 		return cod_cliente;
 	}
 	
+	public void setCod_cliente(int cod_cliente) {
+		this.cod_cliente = cod_cliente;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -87,11 +89,11 @@ public class Cliente {
 		this.rg = rg;
 	}
 
-	public Date getData_nasc() {
+	public String getData_nasc() {
 		return data_nasc;
 	}
 
-	public void setData_nasc(Date data_nasc) {
+	public void setData_nasc(String data_nasc) {
 		this.data_nasc = data_nasc;
 	}
 
@@ -147,7 +149,7 @@ public class Cliente {
 		return telefone;
 	}
 
-	public void setTeleforne(String telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
