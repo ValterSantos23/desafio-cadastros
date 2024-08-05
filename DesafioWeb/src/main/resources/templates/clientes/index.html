@@ -1,17 +1,30 @@
 <div th:replace="compartilhado/top"></div>
-	<!-- Begin Page Content -->
+	
 	<div class="container-fluid">
 	
-	    <!-- Page Heading -->
+	    <!-- Cabeçalho -->
 	    <h1 class="h3 mb-2 text-gray-800">Cliente</h1>
 	    <p class="mb-4">
 			Cadastrar, consultar, alterar e excluir um cliente
 		</p>
 	
-	    <!-- DataTales Example -->
 	    <div class="card shadow mb-4">
 	        <div class="card-header py-3">
-	            <a href="/clientes/novo" class="btn btn-success border border-dark">Novo</a>
+	            
+				<div class="input-group">
+					<!--Botão de novo-->
+					<a href="/clientes/novo" class="btn btn-success border border-dark">Novo</a>
+                    
+					<!--Pesquisas sem implementar ainda-->
+                    <div class="input-group-append" style="margin-left:425px;">
+						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Código" aria-label="Search" aria-describedby="basic-addon2">
+						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="Cliente" aria-label="Search" aria-describedby="basic-addon2">
+						<input type="text" style="margin-left:5px;" class="form-control bg-light border-0 small" placeholder="CPF" aria-label="Search" aria-describedby="basic-addon2">
+						<button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
 	        </div>
 	        <div class="card-body">
 	            <div class="table-responsive">

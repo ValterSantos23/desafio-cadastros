@@ -37,32 +37,79 @@
                 </div>
             </a>
 
-            <!-- Divider -->
+            <!-- Divisor -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Home -->
             <li class="nav-item active">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Home</span></a>
+                    <span>Início</span></a>
             </li>
 
-            <!-- Divider -->
+            <!-- Divisor -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!--Cadastros e Menu lateral-->
 			<li class="nav-item">
-            	<a class="nav-link" href="/clientes">
-               		<i class="fas fa-fw fa-table"></i>
-               		<span>Clientes</span></a>
-           	</li>
-
-            <!-- Divider -->
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCadastro"
+                    aria-expanded="true" aria-controls="collapseCadastro">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Cadastro</span>
+                </a>
+                <div id="collapseCadastro" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-dark py-2 collapse-inner rounded">
+                        <a class="nav-link" href="/clientes">
+                            <span>Cliente</span></a>
+						<!-- Divisor -->
+						<hr class="sidebar-divider">
+                        <a class="nav-link" href="#">
+                            <span>Produto</span></a>
+                    </div>
+                </div>
+            </li>
+			
+            <!-- Divisor -->
+			<hr class="sidebar-divider">
+			
+			<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePedido"
+                    aria-expanded="true" aria-controls="collapsePedido">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pedido</span>
+                </a>
+                <div id="collapsePedido" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-dark py-2 collapse-inner rounded">
+                        <!--A preencher-->
+                    </div>
+                </div>
+            </li>
+			
+			<!-- Divisor -->
+			<hr class="sidebar-divider">
+			
+			<!--Relatórios de Menu lateral-->
+			<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRelatorio"
+                    aria-expanded="true" aria-controls="collapseRelatorio">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Relatório</span>
+                </a>
+                <div id="collapseRelatorio" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-dark py-2 collapse-inner rounded">
+                        <a class="nav-link" href="#">
+                            <span>Cliente</span></a>
+						<!-- Divisor -->
+						<hr class="sidebar-divider">
+                        <a class="nav-link" href="#">
+                            <span>Produto</span></a>
+						<!-- Divisor -->
+						<hr class="sidebar-divider">
+                        <a class="nav-link" href="#">
+                            <span>Pedido</span></a>
+                    </div>
+                </div>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Botão para recolher sidebar -->
@@ -71,7 +118,7 @@
             </div>
 
         </ul>
-        <!-- End of Sidebar -->
+        <!-- Fim da Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
