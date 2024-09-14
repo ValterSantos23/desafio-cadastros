@@ -1,16 +1,16 @@
-from ubuntu:latest as build
+FROM ubuntu:latest AS build
 
-run apt-get apdate
-run apt-get install openjdk-21-jdk -y
-copy . .
+RUN apt-get apdate
+RUN apt-get install openjdk-21-jdk -y
+COPY . .
 
-run apt-get install maven -y
-run mvn clean install
+RUN apt-get install maven -y
+RUN mvn clean install
 
-from openjdk:21-jdk-slim
+FROM openjdk:21-jdk-slim
 
-expose 8080
+EXPOSE 8080
 
-copy --from=build /target/deploy_render-1.0.0.jar app.jar
+COPY --from=build /target/desafioweb-1.0.0.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
